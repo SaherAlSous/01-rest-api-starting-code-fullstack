@@ -15,8 +15,7 @@ class HelloWorldController {
 
     @GetMapping(
         name = "Getting Hello World String",
-        value = ["hello-world"],
-        produces = [MediaType.APPLICATION_JSON_VALUE])
+        value = ["hello-world"])
     fun helloWorld(): String {
         return "Hello World"
     }
@@ -31,7 +30,7 @@ class HelloWorldController {
 
     @GetMapping(
         name = "Getting Hello World with Path variable",
-        value = ["/hello-world/path-variable/{name}"],
+        value = ["hello-world/path-variable/{name}"],
         produces = [MediaType.APPLICATION_JSON_VALUE])
     fun helloWorldPathVariable(
         @PathVariable("name") name: String
