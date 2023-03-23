@@ -17,7 +17,7 @@ class HelloWorldController {
         name = "Getting Hello World String",
         value = ["hello-world"])
     fun helloWorld(): String {
-        return "Hello World"
+        return "Hello JS/React World"
     }
 
     @GetMapping(
@@ -25,7 +25,7 @@ class HelloWorldController {
         value = ["hello-world-bean"],
         produces = [MediaType.APPLICATION_JSON_VALUE])
     fun helloWorldBean(): HelloWorldBean {
-        return HelloWorldBean("Hello World")
+        return HelloWorldBean("Hello JS/React World")
     }
 
     @GetMapping(
@@ -35,6 +35,6 @@ class HelloWorldController {
     fun helloWorldPathVariable(
         @PathVariable("name") name: String
     ): HelloWorldBean {
-        return HelloWorldBean("Hello World, $name")
+        return HelloWorldBean("Hello JS/React World, $name")
     }
 }
