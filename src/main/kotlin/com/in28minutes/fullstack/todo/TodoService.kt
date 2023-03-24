@@ -7,11 +7,11 @@ import java.time.LocalDate
 class TodoService {
 
     private val todos = mutableListOf<Todo>(
-        Todo(1, "in28minutes","Get AWS Certified",
+        Todo(1, "Saher AlSous","Get AWS Certified",
             LocalDate.now().plusYears(10), false ),
-        Todo(2, "in28minutes","Learn DevOps",
+        Todo(2, "Saher AlSous","Learn DevOps",
             LocalDate.now().plusYears(11), false ),
-        Todo(3, "in28minutes","Learn Full Stack Development",
+        Todo(3, "Saher AlSous","Learn Full Stack Development",
             LocalDate.now().plusYears(12), false )
     )
 
