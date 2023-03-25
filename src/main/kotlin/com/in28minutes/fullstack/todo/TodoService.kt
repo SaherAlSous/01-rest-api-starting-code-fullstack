@@ -6,7 +6,7 @@ import java.time.LocalDate
 @Service
 class TodoService {
 
-    private val todos = mutableListOf<Todo>(
+    private val todos = mutableListOf(
         Todo(1, "Saher AlSous","Get AWS Certified",
             LocalDate.now().plusYears(10), false ),
         Todo(2, "Saher AlSous","Learn DevOps",
@@ -26,7 +26,7 @@ class TodoService {
         done: Boolean
     ): Todo {
         val myTodo = Todo(
-            id = todos.size + 1L,
+            id = todos.last().id + 1L,
             username = username,
             description = description,
             targetDate = targetDate,
