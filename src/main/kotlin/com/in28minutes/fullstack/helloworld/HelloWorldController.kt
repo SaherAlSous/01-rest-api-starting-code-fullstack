@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController
 class HelloWorldController {
 
     @GetMapping(
+        name = "Basic Authentication check",
+        value = ["basic-auth"])
+    fun basicAuthCheck(): String {
+        return "Success"
+    }
+
+    @GetMapping(
         name = "Getting Hello World String",
         value = ["hello-world"])
     fun helloWorld(): String {
