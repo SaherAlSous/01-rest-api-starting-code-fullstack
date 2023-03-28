@@ -59,13 +59,17 @@ class JwtSecurityConfig {
                     .anyRequest()
                     .authenticated()
             }
-            .csrf { obj: CsrfConfigurer<HttpSecurity> -> obj.disable() }
+            .csrf { obj: CsrfConfigurer<HttpSecurity> ->
+                obj.disable()
+            }
             .sessionManagement { session: SessionManagementConfigurer<HttpSecurity?> ->
                 session.sessionCreationPolicy(
                     SessionCreationPolicy.STATELESS
                 )
             }
-            .oauth2ResourceServer { obj: OAuth2ResourceServerConfigurer<HttpSecurity?> -> obj.jwt() }
+            .oauth2ResourceServer { obj: OAuth2ResourceServerConfigurer<HttpSecurity?> ->
+                obj.jwt()
+            }
             .httpBasic(
                 Customizer.withDefaults()
             )
