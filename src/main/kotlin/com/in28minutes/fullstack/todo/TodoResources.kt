@@ -20,6 +20,13 @@ class TodoResources(
 ) {
 
     @GetMapping(
+        name = "get All todos",
+        value = ["/todos"])
+    fun findAll(): List<Todo>{
+        return todoService.findAll()
+    }
+
+    @GetMapping(
         name = "Getting todos",
         value = ["/{username}/todos"])
     fun getTodos(

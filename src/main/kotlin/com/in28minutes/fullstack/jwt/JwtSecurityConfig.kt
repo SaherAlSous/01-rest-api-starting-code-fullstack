@@ -1,12 +1,11 @@
 package com.in28minutes.fullstack.jwt
 
-import com.nimbusds.jose.JOSEException
 import com.nimbusds.jose.jwk.JWKSelector
 import com.nimbusds.jose.jwk.JWKSet
 import com.nimbusds.jose.jwk.RSAKey
 import com.nimbusds.jose.jwk.source.JWKSource
 import com.nimbusds.jose.proc.SecurityContext
-import java.util.Base64
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -22,7 +21,6 @@ import org.springframework.security.config.annotation.web.configurers.oauth2.ser
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
-import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm
 import org.springframework.security.oauth2.jwt.JwtDecoder
 import org.springframework.security.oauth2.jwt.JwtEncoder
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder
@@ -53,8 +51,8 @@ class JwtSecurityConfig {
             .authorizeHttpRequests{ auth ->
                 auth
                     .requestMatchers("/authenticate").permitAll()
-//                    .requestMatchers(PathRequest.toH2Console())
-//                    .permitAll() // h2-console is a servlet and NOT recommended for a production
+                    .requestMatchers(PathRequest.toH2Console())
+                    .permitAll() // h2-console is a servlet and NOT recommended for a production
                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                     .anyRequest()
                     .authenticated()

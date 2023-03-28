@@ -1,13 +1,20 @@
 package com.in28minutes.fullstack.todo
 
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 import java.time.LocalDate
 
+@Entity
 open class Todo(
-    open var id: Long,
-    open var username: String,
-    open var description: String,
-    open var targetDate: LocalDate,
-    open var done: Boolean
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    open var id: Long = 1L,
+    open var username: String= "",
+    open var description: String = "",
+    open var targetDate: LocalDate = LocalDate.now(),
+    open var done: Boolean = false
 ) {
 
     override fun toString(): String {
